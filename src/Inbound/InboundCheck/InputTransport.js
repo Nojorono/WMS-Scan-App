@@ -705,7 +705,6 @@ const InputTransport = ({navigation, route}) => {
                   <Text>{'\n'}</Text>
                 </View>
               )} */}
-
               {main_checker === loginData ? (
                 vehicleSelected ? (
                   <>
