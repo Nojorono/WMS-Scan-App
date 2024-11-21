@@ -25,7 +25,7 @@ const HomeDashboard = ({loginData}) => {
     try {
       await Promise.all([getOrderList(), getFinishInbound(), getPutawayData()]);
     } catch (error) {
-      Alert.alert('Error', 'Failed to fetch data.');
+      Alert.alert('Error', 'Failed to fetch API data.');
     } finally {
       setRefreshing(false);
     }
@@ -53,6 +53,7 @@ const HomeDashboard = ({loginData}) => {
       setResData(result.data.length);
     } catch (error) {
       console.error(error);
+      Alert.alert('Error getFinishInbound', error.message);
     }
   };
 
@@ -64,8 +65,10 @@ const HomeDashboard = ({loginData}) => {
       setOrderList(responseData.data.length);
     } catch (error) {
       console.error(error);
+      Alert.alert('Error getOrderList', error.message);
     }
   };
+
 
   const getPutawayData = async () => {
     const api = `${baseURL}/putaway-data/${loginData}`;
@@ -76,6 +79,7 @@ const HomeDashboard = ({loginData}) => {
       setConfirmedPutaway(responseData.putaway_finished.length);
     } catch (error) {
       console.error(error);
+      Alert.alert('Error getPutawayData', error.message);
     }
   };
 
