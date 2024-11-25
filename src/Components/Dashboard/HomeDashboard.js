@@ -69,7 +69,6 @@ const HomeDashboard = ({loginData}) => {
     }
   };
 
-
   const getPutawayData = async () => {
     const api = `${baseURL}/putaway-data/${loginData}`;
     try {
